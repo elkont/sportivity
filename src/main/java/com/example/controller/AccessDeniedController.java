@@ -1,7 +1,7 @@
 package com.example.controller;
 
-import javax.validation.Valid;
-
+import com.example.model.User;
+import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,28 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.model.User;
-import com.example.service.UserService;
-
 @Controller
-public class LoginController {
+public class AccessDeniedController {
 	
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value={"/login"}, method = RequestMethod.GET)
-	public ModelAndView login(){
+	@RequestMapping(value="/access-denied", method = RequestMethod.GET)
+	public ModelAndView index(){
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("login");
+		modelAndView.setViewName("access-denied");
 		return modelAndView;
 	}
-
-	@RequestMapping(value={"/login"}, method = RequestMethod.POST)
-	public ModelAndView loginUser(){
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("user", new User());
-		modelAndView.setViewName("login");
-		return modelAndView;
-	}
-
 }

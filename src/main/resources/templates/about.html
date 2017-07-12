@@ -54,61 +54,11 @@
 		</div>
 	</div>
 </div>
-<div style="margin: 30px 0;">
+<div class="features">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<form autocomplete="off" action="#" th:action="@{/registration}"
-					  th:object="${user}" method="post" class="form-horizontal"
-					  role="form">
-					<h2>Registration Form</h2>
-					<p th:utext="${successMessage}" class="alert alert-success"></p>
-					<div class="col-md-6 col-md-offset-3 col-lg-offset-3">
-					<div class="form-group">
-						<div class="col-sm-9">
-							<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-								   class="validation-message"></label>
-							<input type="text" th:field="*{name}" placeholder="Name"
-								   class="form-control" />
-						</div>
-					</div>
-
-					<div class="form-group">
-						<div class="col-sm-9">
-							<label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-									  class="validation-message"></label>
-							<input type="text" th:field="*{lastName}"
-								   placeholder="Last Name" class="form-control" />
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="text" th:field="*{email}" placeholder="Email"
-								   class="form-control" /> <label
-								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-								class="validation-message"></label>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="password" th:field="*{password}"
-								   placeholder="Password" class="form-control" /> <label
-								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-								class="validation-message"></label>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<div class="col-sm-9">
-							<button type="submit" class="btn btn-primary btn-block">Register User</button>
-						</div>
-					</div>
-					</div>
-
-				</form>
-			</div>
-		</div>
+		<h1 class="text-center" style="margin-bottom: 30px">About</h1>
 	</div>
+</div>
 </div>
 <div class="footer">
 	<div class="container">
