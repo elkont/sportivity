@@ -48,6 +48,7 @@
 				<div class="header_right">
 					<span class="navbar-text navbar-right" th:if="${userMessage}" th:text="${userMessage}"></span>
 					<a th:unless="${userMessage}" class="btn btn-primary navbar-btn navbar-right" href="/login">Login</a>
+					<a th:if="${userMessage}" class="btn btn-primary navbar-btn navbar-right" href="/index">Logout</a>
 					<div class="clear"></div>
 				</div>
 			</div>
