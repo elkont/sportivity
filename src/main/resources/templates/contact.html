@@ -12,14 +12,11 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+	<script rel="stylesheet" stype="text/css" href="home.css"></script>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" th:href="@{/css/fwslider.css}" media="all">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/contact.css}" />
 
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!--end slider -->
 </head>
 
 <body>
@@ -56,7 +53,23 @@
 </div>
 <div class="features">
 	<div class="container">
-		<h1 class="text-center" style="margin-bottom: 30px">Contact</h1>
+		<h1 class="text-center">Contact us</h1>
+		<div class="container" id="contactForm">
+			<form action="">
+
+				<label for="fname">First Name</label>
+				<input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+				<label for="lname">Last Name</label>
+				<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+				<label for="subject">Subject</label>
+				<textarea id="subject" name="subject" placeholder="Write your message here" style="height:200px"></textarea>
+
+				<input type="submit" value="Submit">
+
+			</form>
+		</div>
 	</div>
 </div>
 </div>
@@ -69,5 +82,9 @@
 		</div>
 	</div>
 </div>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>

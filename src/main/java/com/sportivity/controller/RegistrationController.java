@@ -3,6 +3,7 @@ package com.sportivity.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.sportivity.model.User;
 import com.sportivity.service.UserService;
 
 @Controller
+@Scope("session")
 public class RegistrationController {
 
     @Autowired
@@ -42,6 +44,7 @@ public class RegistrationController {
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "You have been registered successfully. Please login");
             modelAndView.addObject("user", new User());
+
             modelAndView.setViewName("registration");
 
         }

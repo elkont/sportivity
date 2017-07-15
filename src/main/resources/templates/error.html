@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Welcome to Sportivity | sportivity.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link th:href="@{/css/style.css}" rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" th:href="@{/css/fwslider.css}" media="all">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header-left">
+                    <div class="logo">
+                        <a href="/"><img src="/images/logo.png" alt=""/></a>
+                    </div>
+                    <div class="menu site-name">
+                        <span>SPORTIVITY</span>
+                    </div>
+                    <div class="menu">
+                        <a class="toggleMenu" href="#"><img src="/images/nav.png" alt="" /></a>
+                        <ul class="nav" id="nav">
+                            <li><a th:href="@{/about}">About</a></li>
+                            <li><a th:href="@{/contact}">Contact</a></li>
+                            <div class="clear"></div>
+                        </ul>
+                        <script type="text/javascript" src="/js/responsive-nav.js"></script>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="header_right">
+                    <span class="navbar-text navbar-right" th:if="${userMessage}" th:text="${userMessage}"></span>
+                    <a th:unless="${userMessage}" class="btn btn-primary navbar-btn navbar-right" href="/login">Login</a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin: 30px 0;">
+    <div class="container">
+        <h1>Please sign up and login first</h1>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="row footer_bottom">
+            <div class="copy">
+                <p>© 2017 Sportivity</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

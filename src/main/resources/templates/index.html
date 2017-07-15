@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
@@ -16,11 +18,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<!--end slider -->
 </head>
 
 <body>
@@ -48,10 +46,10 @@
 				</div>
 
 				<div class="header_right">
-					<span class="navbar-text navbar-right" th:if="${userMessage}" th:text="${userMessage}"></span>
-					<a th:if="${userMessage}" class="btn btn-primary navbar-btn navbar-right" href="/index">Logout</a>
 
-					<a th:if!="${userMessage}" class="btn btn-primary navbar-btn navbar-right" href="/login">Login</a>
+					<span class="navbar-text navbar-right" th:if="${name}" th:text="${name}"></span>
+
+					<a th:if!="${name}" class="btn btn-primary navbar-btn navbar-right" href="/login">Login</a>
 
 					<div class="clear"></div>
 				</div>
@@ -61,7 +59,7 @@
 	</div>
 </div>
 <div class="info">
-	<p style="text-align:center;">
+	<p class="text-justify">
 		Are you ready to play your favorite Sport? You can register below and select the sport activity and the location you prefer.
 		We provide you all information about the sports centers provided. Enjoy!
 	</p>
@@ -79,19 +77,19 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img src="/images/slider1.jpg" alt="...">
+				<img src="/images/slider1.jpg" alt="slider1">
 				<div class="carousel-caption">
 					Welcome to SPORTIVITY!
 				</div>
 			</div>
 			<div class="item">
-				<img src="/images/basket.jpg" alt="...">
+				<img src="/images/slider2.jpg" width="1920" heigth="640" alt="slider2">
 				<div class="carousel-caption">
 					We are AWESOME!
 				</div>
 			</div>
 			<div class="item">
-				<img src="/images/football2.jpg" alt="...">
+				<img src="/images/slider3.jpg"  alt="slider3">
 				<div class="carousel-caption">
 					Let us show you WHY
 				</div>
@@ -151,5 +149,9 @@
 		</div>
 	</div>
 </div>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>

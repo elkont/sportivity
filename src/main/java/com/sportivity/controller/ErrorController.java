@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class AccessDeniedController {
+public class ErrorController {
 	
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value="/access-denied", method = RequestMethod.GET)
+	@RequestMapping(value="/error", method = RequestMethod.GET)
 	public ModelAndView index(){
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("access-denied");
+		modelAndView.setViewName("error");
 		return modelAndView;
 	}
 }
