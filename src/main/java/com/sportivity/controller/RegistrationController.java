@@ -3,7 +3,8 @@ package com.sportivity.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,6 @@ import com.sportivity.model.User;
 import com.sportivity.service.UserService;
 
 @Controller
-@Scope("session")
 public class RegistrationController {
 
     @Autowired
@@ -23,9 +23,14 @@ public class RegistrationController {
     @RequestMapping(value="/registration", method = RequestMethod.GET)
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
-        User user = new User();
-        modelAndView.addObject("user", user);
         modelAndView.setViewName("registration");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("user", new User());
+
+        if(user != null) {
+            modelAndView.addObject("userMessage", "Hello " + user.getName());
+        }
         return modelAndView;
     }
 
@@ -42,9 +47,8 @@ public class RegistrationController {
             modelAndView.setViewName("registration");
         } else {
             userService.saveUser(user);
-            modelAndView.addObject("successMessage", "You have been registered successfully. Please login");
+            modelAndView.addObject("successMessage", "Yay! You have been successfully registered! ");
             modelAndView.addObject("user", new User());
-
             modelAndView.setViewName("registration");
 
         }

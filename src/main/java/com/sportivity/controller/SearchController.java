@@ -23,6 +23,10 @@ public class SearchController {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
+
+        if(user != null) {
+            modelAndView.addObject("userMessage", "Hello " + user.getName());
+        }
         modelAndView.setViewName("admin/search");
         return modelAndView;
     }
