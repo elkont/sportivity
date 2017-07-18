@@ -16,10 +16,6 @@
 	<link rel="stylesheet" th:href="@{/css/fwslider.css}" media="all">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!--end slider -->
 </head>
 
 <body>
@@ -46,10 +42,10 @@
 					<div class="clear"></div>
 				</div>
 				<div class="header_right">
-					<a th:if="${userMessage}" class="btn btn-danger navbar-btn navbar-right" href="/logout">Logout</a>
+					<a th:if="${userMessage}" class="btn btn-danger navbar-btn navbar-right" href="/logout" style="margin-left: 15px;">Logout</a>
 					<span class="navbar-text navbar-right username" th:if="${userMessage}" th:text="${userMessage}"></span>
 
-					<button th:unless="${userMessage}" class="btn btn-primary navbar-btn navbar-right" data-toggle="modal" data-target="#registration">Register</button>
+					<button th:unless="${userMessage}" class="btn btn-primary navbar-btn navbar-right" data-toggle="modal" data-target="#registration" >Register</button>
 					<button th:unless="${userMessage}" class="btn btn-primary navbar-btn navbar-right" data-toggle="modal" data-target="#login" style="margin-right: 15px;">Login</button>
 					<div class="clear"></div>
 				</div>
@@ -57,5 +53,8 @@
 		</div>
 	</div>
 </div>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

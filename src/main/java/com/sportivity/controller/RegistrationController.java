@@ -17,6 +17,8 @@ import com.sportivity.service.UserService;
 @Controller
 public class RegistrationController {
 
+    private static final String SEARCH_FORM = "searchForm";
+
     @Autowired
     private UserService userService;
 
@@ -29,7 +31,7 @@ public class RegistrationController {
         modelAndView.addObject("user", new User());
 
         if(user != null) {
-            modelAndView.addObject("userMessage", "Hello " + user.getName());
+            modelAndView.addObject("userMessage", " Hello " + user.getName());
         }
         return modelAndView;
     }
@@ -47,7 +49,7 @@ public class RegistrationController {
             modelAndView.setViewName("registration");
         } else {
             userService.saveUser(user);
-            modelAndView.addObject("successMessage", "Yay! You have been successfully registered! ");
+            modelAndView.addObject("successMessage", " You have been successfully registered! Please login");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
 

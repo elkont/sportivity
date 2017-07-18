@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.sportivity.model.User;
 
-@Repository("userRepository")
+@Repository("userRepository")// extend CrudRepository
 public interface UserRepository extends JpaRepository<User, Long> {
 	 User findByEmail(String email);
 }

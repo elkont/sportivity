@@ -17,150 +17,86 @@
 	<link rel="stylesheet" th:href="@{/css/fwslider.css}" media="all">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!--end slider -->
+
 </head>
 
 <body>
-<div class="header">
+<div class="header" th:replace="fragments/header :: header"></div>
+<div style="padding: 0 0 100px">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="header-left">
-					<div class="logo">
-						<a href="/"><img src="/images/logo.png" alt=""/></a>
-					</div>
-					<div class="menu site-name">
-						<span>SPORTIVITY</span>
-					</div>
-					<div class="menu">
-						<a class="toggleMenu" href="#"><img src="/images/nav.png" alt="" /></a>
-						<ul class="nav" id="nav">
-							<li><a th:href="@{/about}">About</a></li>
-							<li><a th:href="@{/contact}">Contact</a></li>
-							<div class="clear"></div>
-						</ul>
-						<script type="text/javascript" src="/js/responsive-nav.js"></script>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="header_right">
-					<span class="navbar-text navbar-right" th:if="${userMessage}" th:text="${userMessage}"></span>
-					<a th:if="${adminMessage}" class="btn btn-primary navbar-btn navbar-right" href="/index">Logout</a>
-					<a th:if!="${adminMessage}" class="btn btn-primary navbar-btn navbar-right" href="/login">Login</a>
 
-					<div class="clear"></div>
-				</div>
-			</div>
+		<div class="page-header">
+			<h1>Search for available Sports Centers</h1>
 		</div>
-	</div>
-</div>
-<div class="container">
-
-	<form th:action="@{/logout}" method="get">
-		<button class="btn btn-md btn-warning" name="registration"
-				type="Submit">Logout</button>
-	</form>
-
-	<div class="panel-group" >
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<span th:utext="${userName}"></span>
-
-			</div>
-
-			<p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
-		</div>
-	</div>
-
-</div>
-<div class="features">
-	<div class="container">
-		<h1>Search for available Sports Centers</h1>
 		<br>
-		<h2>Select location</h2>
-		<select>
-			<option value="Xalandri">Xalandri</option>
-			<option value="Kallithea">Kallithea</option>
-			<option value="Glyfada">Glyfada</option>
-			<option value="Athens">Athens</option>
-		</select>
-		<br>
-		<p>Type the sport activity you are interested in and you will get information about it and the sport centers you can contact</p>
-		<br>
-		<form action="/">
-			<div class="input-group">
-				<input type="text" class="form-control" placeholder="Type here the sport, for example Tennis" name="keyword" width="40%">
-				<div class="input-group-btn">
-					<!--button to trigger the modal-->
-					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-search"></i></button>
-					<!-- Modal -->
-					<div class="modal fade" id="myModal" role="dialog">
-						<div class="modal-dialog">
 
-							<!-- Modal content-->
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Sports Centers</h4>
-								</div>
-								<div class="modal-body">
-									<p>You can see the available sports centers at your location</p>
-								</div>
+		<blockquote>
+			<p>Type the sport activity you are interested in and you will get information about it and the sport centers you can contact</p>
+		</blockquote>
 
 
-									<h4 class="text-center">Search results</h4>
-									<table class="table table-hover">
-										<thead>
-										<tr>
-											<th>Sport Center</th>
-											<th>Location</th>
-											<th>Capacity</th>
-										</tr>
-										</thead>
-										<tbody>
-										<c:forEach items="${sportCenter}" var="sportCenter">
-											<tr>
-												<td><img alt="" src=""></td>
-												<td>${sportCenter.title}</td>
-												<td>${sportCenter.location}</td>
-												<td>${sportCenter.capacity}</td>
+		<div class="container">
+			<form action="#" th:action="@{/admin/search}" method="post" enctype="multipart/form-data" >
 
-											</tr>
-										</c:forEach>
-										</tbody>
-									</table>
+				<div class="form-group">
+					<label for="location">Select location</label>
+					<select id="location" name="location" class="form-control" >
+						<option value="Xalandri">Xalandri</option>
+						<option value="Kallithea">Kallithea</option>
+						<option value="Glyfada">Glyfada</option>
+						<option value="Athens">Athens</option>
+					</select>
+				</div>
 
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								</div>
-							</div>
+				<div class="form-group">
+					<label for="location">Search by Sport</label>
 
+					<div class="input-group">
+						<input type="text" name="title" class="form-control" id="keyword" placeholder="Type here the sport, for example Tennis">
+						<div class="input-group-addon">
+							<button type="submit" class="btn btn-default">
+								<span class="glyphicon glyphicon-search"></span> Search
+							</button>
 						</div>
 					</div>
-
 				</div>
-			</div>
-		</form>
+
+			</form>
+		</div>
+
+
+		<div class="container">
+			<table class="table table-hover table-striped">
+				<thead>
+				<tr>
+					<th>Sport Center</th>
+					<th>Location</th>
+					<th>Capacity</th>
+					<th>Information</th>
+				</tr>
+				</thead>
+				<tbody>
+
+					<tr th:each="sport:${results}">
+						<td><img alt="" src=""></td>
+						<td><span th:text="${sport.title}"></span></td>
+						<td><span th:text="${sportCenter.title}"></span></td>
+						<td><span th:text="${sportCenter.location}"></span></td>
+						<td><span th:text="${sportCenter.capacity}"></span></td>
+						<td><span th:text="${sportCenter.info}"></span></td>
+					</tr>
+				</th:each>
+				</tbody>
+			</table>
+		</div>
+
 	</div>
 
 </div>
-<div class="row">
-	<div class="col-md-3">
-		<img src="/images/sports.jpg" alt="sports" width=80% heigth=80%>
-	</div>
-</div>
-<br>
-<div class="footer">
-	<div class="container">
-		<div class="row footer_bottom">
-			<div class="copy">
-				<p>© 2017 Sportivity</p>
-			</div>
-		</div>
-	</div>
-</div>
+
+<div class="footer" th:replace="fragments/footer :: footer"></div>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

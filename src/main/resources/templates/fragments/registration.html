@@ -16,17 +16,13 @@
 	<link rel="stylesheet" th:href="@{/css/fwslider.css}" media="all">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
 <div class="modal fade" tabindex="-1" role="dialog" th:fragment="registration" id="registration" aria-labelledby="registration">
 	<div class="modal-dialog" role="document">
-		<form autocomplete="off" action="#" th:action="@{/registration}"
-			  th:object="${user}" method="post"
+		<form autocomplete="off" method="post" th:action="@{/registration}"
+			  th:object="${user}"
 			  role="form">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -84,6 +80,8 @@
 		</form>
 	</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
