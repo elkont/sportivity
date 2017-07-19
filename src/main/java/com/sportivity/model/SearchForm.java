@@ -6,14 +6,12 @@ import java.util.Dictionary;
  * Created by elena on 17/7/2017.
  */
 public class SearchForm {
-    private String keyword;
+    private String title;
 
-    public String getKeyword() {
-        return keyword;
-    }
+    public String getTitle(){return title;}
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
+    public void setTitle(String keyword) {
+        this.title =  title;
     }
 
 

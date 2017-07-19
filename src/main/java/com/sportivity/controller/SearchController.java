@@ -6,8 +6,10 @@ import com.sportivity.model.SportCenter;
 import com.sportivity.model.User;
 import com.sportivity.repository.SportCenterRepository;
 import com.sportivity.repository.SportRepository;
+import com.sportivity.service.SportService;
 import com.sportivity.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -27,14 +29,18 @@ import java.util.List;
 public class SearchController {
     @Autowired
     private UserService userService;
+    @Qualifier("sportRepository")
     @Autowired
     private SportRepository sportRepository;
 
+    @Autowired
+    private SportService sportService;
+
     private static final String SEARCH_FORM = "searchForm";
+    private static final String SPORTLIST = "sports";
 
 
-
-    @RequestMapping(value = "/admin/search", method = RequestMethod.GET)
+  /*  @RequestMapping(value = "/admin/search", method = RequestMethod.GET)
     public ModelAndView search() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -45,18 +51,32 @@ public class SearchController {
         }
         modelAndView.setViewName("admin/search");
         return modelAndView;
+    } */
+
+    @RequestMapping(value = "/admin/search", method = RequestMethod.GET)
+    public String login(Model model) {
+        model.addAttribute(SEARCH_FORM, new SearchForm());
+        return "sport";
     }
+
     @RequestMapping(value = "/admin/search", method = RequestMethod.POST)
     public String search(@ModelAttribute(SEARCH_FORM) SearchForm searchForm, @RequestParam String title,
                          @RequestParam String location,
                          HttpSession session,
                          RedirectAttributes redirectAttributes, Model model) {
 
-        List<Sport> results = sportRepository.findByTitle(title);
+        if (!searchForm.getTitle().isEmpty()) {
+            List sportList = sportService.findByTitle(searchForm.getTitle());
+            if (!sportList.isEmpty()) {
+                redirectAttributes.addFlashAttribute(SPORTLIST, sportList);
+            }
 
-        model.addAttribute("results", results);
+           /* List<Sport> results = sportRepository.findByTitle(title);
 
-        return "admin/search";
+            model.addAttribute("results", results);*/
+
+
+        }
+        return "redirect:/admin/search";
     }
-
 }
